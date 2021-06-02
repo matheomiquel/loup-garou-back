@@ -19,10 +19,11 @@ export class Main {
   });
   public id: string = ""
   start(): Promise<Boolean> {
+    const port = process.env.PORT || 3000
     this.app.use(Express.json())
     this.app.use(cors())
     const bdd = new Bdd()
-    this.httpServer.listen(3000, function () {
+    this.httpServer.listen(port, function () {
       console.log('Votre app est disponible sur localhost:3000 !')
     })
     const userRoute = new UserRoute({ app: this.app, bdd: this.bdd, io: this.io });
