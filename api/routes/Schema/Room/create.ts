@@ -1,0 +1,5 @@
+const roomCreateSchema = {
+  
+}
+
+export { roomCreateSchema }
