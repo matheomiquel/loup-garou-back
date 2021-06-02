@@ -27,10 +27,11 @@ var Main = /** @class */ (function () {
     }
     Main.prototype.start = function () {
         var _this = this;
+        var port = process.env.PORT || 3000;
         this.app.use(express_1.default.json());
         this.app.use(cors_1.default());
         var bdd = new data_1.Bdd();
-        this.httpServer.listen(3000, function () {
+        this.httpServer.listen(port, function () {
             console.log('Votre app est disponible sur localhost:3000 !');
         });
         var userRoute = new routes_1.UserRoute({ app: this.app, bdd: this.bdd, io: this.io });
